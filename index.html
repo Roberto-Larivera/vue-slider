@@ -29,8 +29,9 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevClick()"></div>
                     <div class="next" @click="nextClick()"></div>
-                    <div class="thumb" v-for="n in slides">
-                        <img :src="slides[].image" :alt="slides[].title" />
+                    <div class="thumb" v-for="(n,index) in slides" :class ="index == slideCurrent ? 'active': '' " @click="increaseDecreaseClick (index)" >
+                        <!-- <h1>{{n}}</h1> -->
+                        <img :src="n.image" :alt="n.title" />
                     </div>
                 </div>
 
@@ -38,6 +39,10 @@
         </div>
 
     </div>
+
+    <!-- <div class="thumb" v-for="n in slides">
+        <img :src="slides[].image" :alt="slides[].title" />
+    </div> -->
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js"></script>
