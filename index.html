@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slider</title>
+    <title>Vue Slider</title>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -29,7 +29,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevClick()"></div>
                     <div class="next" @click="nextClick()"></div>
-                    <div class="thumb" v-for="(n,index) in slides" :class ="index == slideCurrent ? 'active': '' " @click="increaseDecreaseClick (index)" >
+                    <div class="thumb" v-for="(n,index) in slides" :class ="index == slideCurrent ? 'active': '' " @click=" slideCurrent = (index)" >
                         <!-- <h1>{{n}}</h1> -->
                         <img :src="n.image" :alt="n.title" />
                     </div>

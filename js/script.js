@@ -73,8 +73,8 @@ const { createApp } = Vue
                 this.slideCurrent--;
             }
         },
-        increaseDecreaseClick (n){
-            this.slideCurrent = n
-        }
+        // increaseDecreaseClick (n){
+        //     this.slideCurrent = n                //@click=" slideCurrent = (index)"
+        // }
     },
   }).mount('#app')
