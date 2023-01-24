@@ -73,8 +73,24 @@ const { createApp } = Vue
                 this.slideCurrent--;
             }
         },
-        // increaseDecreaseClick (n){
-        //     this.slideCurrent = n                //@click=" slideCurrent = (index)"
-        // }
+        hoverStop(){
+          //console.log('SONO IN HOVER');
+          clearInterval(this.autoPlay);
+          this.autoPlay = null;
+        },
+        hoverPlay(){
+          //console.log('SONO FUORI HOVER');
+          this.startAutoPlay();
+        },
+        startAutoPlay(){
+          this.autoPlay = setInterval(this.nextClick,3000);
+        },
+    
+    },
+    mounted() {
+        //console.log('Mounted ok!');
+        //0=setInterval(this.nextClick,3000);
+        // setInterval(this.prevClick,3000),
+        this.startAutoPlay()
     },
   }).mount('#app')

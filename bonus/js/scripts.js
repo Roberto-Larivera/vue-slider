@@ -28,6 +28,7 @@ const { createApp } = Vue
           }
         ],
         slideCurrent : 0,
+        autoPlay : null ,
       }
       
     },
@@ -46,6 +47,25 @@ const { createApp } = Vue
         }else{
             this.slideCurrent--;
         }
-    }
+    },
+    hoverStop(){
+      //console.log('SONO IN HOVER');
+      clearInterval(this.autoPlay);
+      this.autoPlay = null;
+    },
+    hoverPlay(){
+      //console.log('SONO FUORI HOVER');
+      this.startAutoPlay();
+    },
+    startAutoPlay(){
+      this.autoPlay = setInterval(this.nextClick,3000);
+    },
+
+    },
+    mounted() {
+      //console.log('Mounted ok!');
+      //0=setInterval(this.nextClick,3000);
+      // setInterval(this.prevClick,3000),
+      this.startAutoPlay()
     },
   }).mount('#app')

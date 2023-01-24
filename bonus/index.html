@@ -20,13 +20,13 @@
 <body>
     <div id="app">
         <main>
-            <div class="carousel">
+            <div class="carousel "  @mouseenter="hoverStop()" @mouseleave="hoverPlay()">
     
                 
                 <div class="images-slide">
                     
                     <div class="slides">
-                        <div class="slide">
+                        <div class="slide" >
                             <div class="info-image">
                                 <h2>
                                     {{imagesCarousel[slideCurrent].title}}
@@ -44,6 +44,7 @@
     
                 <div class="strument-preview">
                     <div class="strument">
+                        <!-- <span class="after" @click="nextClick ()" > -->
                         <span class="after" @click="nextClick ()" >
                             <i class="fa-solid fa-circle-chevron-right"></i>
                         </span>
@@ -52,7 +53,7 @@
                         </span>
                     </div>
                     <div class="preview"  >
-                        <div class="box-preview" v-for="(item, index) in imagesCarousel" >
+                        <div class="box-preview" v-for="(item, index) in imagesCarousel" :style="'width: '+ (100 / imagesCarousel.length) + '%'">
                             <img :src="item.image" :alt="item.title" :class="index == slideCurrent ? 'filter-on' : '' " @click="slideCurrent = index">
                         </div>
                     </div>
